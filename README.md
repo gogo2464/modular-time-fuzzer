@@ -1,6 +1,8 @@
 ## I Tutorials:
 
-# I.1/ Install dependencies
+# I.1/ Build modular-timing-fuzzer
+
+Install dependencies
 
 ```bash
 virtualenv -p python3 venv3 ;
@@ -9,16 +11,28 @@ source venv3/bin/activate &&
 pip install argparse requests matplotlib scipy pandas
 ```
 
-# I.2/ Install modular-time-fuzzer
+Then run:
 
-```
+```bash
 python3 -m pip install build && 
 python3 -m build &&
 python3 -m pip install -e . &&
 python3 -m pip install dist/modular_time_fuzzer_GOGO-0.0.1-py3-none-any.whl --force-reinstall
 ```
 
+# I.2/ Install From Pypi
+
+Run simply:
+
+```bash
+pip install modular-time-fuzzer
+```
+
+
 # I.3/ Usage
+
+`measure` command line permits to choose inputs that will be recorded to the database.
+`analyze` command line permits to represent the data collected to a picture graph.
 
 ```bash
 measure -r 10 -c a -c b -c c -c d -c e -c f -c g -c h -c i -c j -c k -c l -c m -c n -c o -c p -c q -c r -c s -c t -c u -c v -c w -c x -c y -c z "out.sqlite"
@@ -91,4 +105,11 @@ tmux new-session -d -s persistent_session "rm -Rf tmpdir/ && mkdir tmpdir/ ; pme
 tmux attach -t persistent_session
 ```
 
+# III/ API reference for developpers
+
+# IV/ Why using a modular timing attack fuzzer?
+
+# IV.1 / attacks against passwords authentication with unsecure crypto comparison.
+
+# IV.2 / attacks against assymetric encryption algorithms.
 
