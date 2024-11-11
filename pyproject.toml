@@ -1,0 +1,30 @@
+[project]
+name = "modular_time_fuzzer_GOGO"
+version = "0.0.1"
+authors = [
+  { name="gogo246475", email="gogo246475@gmail.com" },
+]
+description = "modular time fuzzer"
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: PROPRIETARY License",
+    "Operating System :: OS Independent",
+]
+
+dependencies = [
+    "requests",
+    "argparse"
+]
+
+[project.urls]
+Homepage = "https://github.com/pypa/sampleproject"
+Issues = "https://github.com/pypa/sampleproject/issues"
+
+[project.scripts]
+measure = "bins.measure:main"
+analyze = "bins.analyze:main"
+
+[tool.setuptools]
+packages = ["src.db_crud", "src.analysis_modules", "bins"]

@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: modular_time_fuzzer_GOGO
+Version: 0.0.1
+Summary: modular time fuzzer
+Author-email: gogo246475 <gogo246475@gmail.com>
+Project-URL: Homepage, https://github.com/pypa/sampleproject
+Project-URL: Issues, https://github.com/pypa/sampleproject/issues
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: PROPRIETARY License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: importlib-metadata; python_version < "3.10"
+
+# Install dependencies
+
+```bash
+virtualenv -p python3 venv3 ;
+source venv3/bin/activate &&
+
+pip install argparse requests matplotlib scipy pandas
+```
+
+# build
+
+```
+python3 -m pip install build && 
+python3 -m build &&
+python3 -m pip install -e .
+
+# or python3 -m pip install dist/example-0.0.1-py3-none-any.whl
+```
+
+# Use
+
+```bash
+python3 measure/main.py -r 10 -c a -c b -c c -c d -c e -c f -c g -c h -c i -c j -c k -c l -c m -c n -c o -c p -c q -c r -c s -c t -c u -c v -c w -c x -c y -c z "out.sqlite"
+python3 analysis/main.py -c a -c b -c c -c d -c e -c f -c g -c h -c i -c j -c k -c l -c m -c n -c o -c p -c q -c r -c s -c t -c u -c v -c w -c x -c y -c z "out.sqlite"
+```
