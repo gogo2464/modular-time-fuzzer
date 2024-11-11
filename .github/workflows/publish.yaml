@@ -28,4 +28,4 @@ jobs:
 
       - name: Publish Wheel
         run: |
-          twine upload dist/* --username gogo2464 --password ${{ secrets.PYPI_GOGO2464_PASSWORD }} --verbose
+          twine upload dist/* --username gogo2464 --password ${{ secrets.PYPI_GOGO2464_MODULAR_TIME_FUZZER_SECRET_TOKEN }} --verbose
