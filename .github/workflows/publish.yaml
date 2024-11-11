@@ -22,7 +22,9 @@ jobs:
           python3 -m build
 
       - name: Check wheels
-        run: twine check dist/* && pip3 install dist/modular_time_fuzzer_GOGO-0.0.1-py3-none-any.whl --force-reinstall
+        run: |
+          twine check dist/* &&
+          pip3 install dist/modular_time_fuzzer_GOGO-0.0.1-py3-none-any.whl --force-reinstall
 
       - name: Publish Wheel
         run: |
