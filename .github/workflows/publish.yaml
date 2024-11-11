@@ -1,11 +1,9 @@
 name: Publish on pypi
 
 on:
-  pull-request:
-    - types:
-      - closed
-    - branches:
-      - main
+  pull_request:
+    branches: main
+    types: closed
 
 jobs:
   build:
@@ -20,12 +18,12 @@ jobs:
 
       - name: Build Wheel
         run: |
-        python3 -m build
+          pip3 install build &&
+          python3 -m build
 
       - name: Check wheels
-        run: |
-        twine check dist/*
+        run: twine check dist/* && pip3 install dist/modular_time_fuzzer_GOGO-0.0.1-py3-none-any.whl --force-reinstall
 
       - name: Publish Wheel
         run: |
-        twine upload dist/* --username gogo2464 --password ${{ secrets.PYPI_GOGO2464_PASSWORD }} --verbose
+          twine upload dist/* --username gogo2464 --password ${{ secrets.PYPI_GOGO2464_PASSWORD }} --verbose
