@@ -1,0 +1,31 @@
+name: Publish on pypi
+
+on:
+  pull_request:
+    branches: main
+    types: closed
+
+jobs:
+  build:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install packaging dependencies
+        run: pip install setuptools wheel twine
+
+      - name: Build Wheel
+        run: |
+          pip3 install build &&
+          python3 -m build
+
+      - name: Check wheels
+        run: |
+          twine check dist/* &&
+          pip3 install dist/modular_time_fuzzer_GOGO-0.0.1-py3-none-any.whl --force-reinstall
+
+      - name: Publish Wheel
+        run: |
+          twine upload dist/* --username gogo2464 --password ${{ secrets.PYPI_GOGO2464_TOKEN }} --verbose
