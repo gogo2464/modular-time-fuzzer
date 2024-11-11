@@ -20,12 +20,11 @@ jobs:
 
       - name: Build Wheel
         run: |
-        python3 -m build
+          python3 -m build
 
       - name: Check wheels
-        run: |
-        twine check dist/*
+        run: twine check dist/*
 
       - name: Publish Wheel
         run: |
-        twine upload dist/* --username gogo2464 --password ${{ secrets.PYPI_GOGO2464_PASSWORD }} --verbose
+          twine upload dist/* --username gogo2464 --password ${{ secrets.PYPI_GOGO2464_PASSWORD }} --verbose
