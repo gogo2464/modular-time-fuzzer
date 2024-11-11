@@ -1,6 +1,6 @@
 [project]
-name = "modular_time_fuzzer_GOGO"
-version = "0.0.1"
+name = "modular_time_fuzzer"
+version = "0.0.2"
 authors = [
   { name="gogo246475", email="gogo246475@gmail.com" },
 ]
