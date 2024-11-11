@@ -109,6 +109,10 @@ tmux attach -t persistent_session
 
 # IV/ Why using a modular timing attack fuzzer?
 
+Trough there are a lot of similar tool for recording request time such as `tlsfuzzer` or `timeinator`, none of them provide enough flexibility to let the user record it own timing with modularity.
+
+`modular-timing-fuzzer` then has chosen to let the user to script the recording interface in a modular way and then use the output recorded to interpret in in a less but still modular way.
+
 # IV.1 / attacks against passwords authentication with unsecure crypto comparison.
 
 # IV.2 / attacks against assymetric encryption algorithms.
