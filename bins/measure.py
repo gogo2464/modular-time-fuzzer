@@ -8,7 +8,7 @@ import argparse
 def main():
     out_file = None
 
-    parser = argparse.ArgumentParser(prog='cve', description='What the program does', epilog='Text at the bottom of help')
+    parser = argparse.ArgumentParser(prog='measure', description='Record execution time of a lit of requests.', epilog='Use analyze program to watch program vulnerabilities')
 
     parser.add_argument('-c', action='append')
     parser.add_argument('-r')

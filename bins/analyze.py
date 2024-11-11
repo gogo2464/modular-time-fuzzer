@@ -14,7 +14,7 @@ from src.db_crud.read import read_inputs
 from src.analysis_modules.draw_ecdf import draw_image_ecdf
 
 def main():
-    parser = argparse.ArgumentParser(prog='analyze', description='Understand requests time taken by the program measure in order to detect timing attack vulnerability', epilog='Text at the bottom of help')
+    parser = argparse.ArgumentParser(prog='analyze', description='Understand requests time taken by the program measure in order to detect timing attack vulnerability', epilog='You must be using measure program previously to get data.')
 
     parser.add_argument('-c', action='append')
     parser.add_argument('data_base')
