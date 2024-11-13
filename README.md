@@ -101,7 +101,7 @@ analyze -c a -c b -c c -c d -c e -c f -c g -c h -c i -c j -c k -c l -c m -c n -c
 On a cloud backend to ensure it will never exit, install previously mentionned dependencies and run:
 
 ```bash
-tmux new-session -d -s persistent_session "rm -Rf tmpdir/ && mkdir tmpdir/ ; pmeasure -r 1000 -c a -c b -c c -c d -c e -c f -c g -c h -c i -c j -c k -c l -c m -c n -c o -c p -c q -c r -c s -c t -c u -c v -c w -c x -c y -c z 'out.sqlite' && analyze -c a -c b -c c -c d -c e -c f -c g -c h -c i -c j -c k -c l -c m -c n -c o -c p -c q -c r -c s -c t -c u -c v -c w -c x -c y -c z 'out.sqlite'"
+tmux new-session -d -s persistent_session "source ./venv3/bin/activate && rm -Rf mkdir tmpdir/ && mkdir tmpdir/ ; measure -r 1000 -c a -c b -c c -c d -c e -c f -c g -c h -c i -c j -c k -c l -c m -c n -c o -c p -c q -c r -c s -c t -c u -c v -c w -c x -c y -c z 'out.sqlite' && analyze -c a -c b -c c -c d -c e -c f -c g -c h -c i -c j -c k -c l -c m -c n -c o -c p -c q -c r -c s -c t -c u -c v -c w -c x -c y -c z 'out.sqlite'"
 tmux attach -t persistent_session
 ```
 
