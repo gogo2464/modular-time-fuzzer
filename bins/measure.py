@@ -32,8 +32,8 @@ def main():
             print("pass {0}/{1} executed".format(i, repeats))
             for c in characters:
                 data = {
-                    'username': '{0}AAAAAAA'.format(c), #openai
-                    'password': 'AAAAAAAA' #isCloseAi
+                    'username': 'AAAAAAAA'.format(c), #openai
+                    'password': '{0}AAAAAAA' #isCloseAi
                 }
 
                 print("requesting")
@@ -43,11 +43,11 @@ def main():
                 except:
                     print("unreachable network")
                     pass
-                diff = time.monotonic_ns() - time_start
-
-                print("saving")
-                db.execute("INSERT INTO REQUEST (INPUT, TIME_TAKEN) VALUES(?, ?)", (c, diff))
-                conn.commit()
+                else:
+                    diff = time.monotonic_ns() - time_start
+                    print("saving")
+                    db.execute("INSERT INTO REQUEST (INPUT, TIME_TAKEN) VALUES(?, ?)", (c, diff))
+                    conn.commit()
 
                 print("{0}".format(c))
         db.close()
