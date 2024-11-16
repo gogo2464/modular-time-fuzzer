@@ -40,7 +40,7 @@ def main():
                 print("requesting")
                 time_start = time.monotonic_ns()
                 try:
-                    r = session.post(args.u, data) # "https://44b22a6eeee0f9d7d9.gradio.live/login"
+                    r = session.post(args.u, data, verify=False) # "https://44b22a6eeee0f9d7d9.gradio.live/login"
                 except:
                     print("unreachable network")
                     pass

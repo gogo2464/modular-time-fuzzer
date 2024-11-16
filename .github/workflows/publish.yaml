@@ -5,11 +5,11 @@ on:
     branches: main
     types: closed
   push:
-    branches:
-      - 'main'
+    branches: main
+    
 jobs:
   build:
-    if: github.event.pull_request.merged == true
+    if: github.event.pull_request.merged == true || github.event_name == 'push'
     runs-on: ubuntu-latest
 
     steps:

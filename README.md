@@ -28,17 +28,15 @@ Run simply:
 pip install modular-time-fuzzer
 ```
 
-
 # I.3/ Usage
 
 `measure` command line permits to choose inputs that will be recorded to the database.
 `analyze` command line permits to represent the data collected to a picture graph.
 
 ```bash
-measure -r 10 -c a -c b -c c -c d -c e -c f -c g -c h -c i -c j -c k -c l -c m -c n -c o -c p -c q -c r -c s -c t -c u -c v -c w -c x -c y -c z "out.sqlite"
-analyze -c a -c b -c c -c d -c e -c f -c g -c h -c i -c j -c k -c l -c m -c n -c o -c p -c q -c r -c s -c t -c u -c v -c w -c x -c y -c z "out.sqlite"
+measure -r 10 -c a -c b -c c -c d -c e -c f -c g -c h -c i -c j -c k -c l -c m -c n -c o -c p -c q -c r -c s -c t -c u -c v -c w -c x -c y -c z -u https://e9208b1412526f8b89.gradio.live/login "out.sqlite"
+analyze -c a -c b -c c -c d -c e -c f -c g -c h -c i -c j -c k -c l -c m -c n -c o -c p -c q -c r -c s -c t -c u -c v -c w -c x -c y -c z -u https://e9208b1412526f8b89.gradio.live/login "out.sqlite"
 ```
-
 
 At any moment, you could run sql query on the database in order to determine for example wich request is noised: `sqlite3 "out.sqlite"`.
 
@@ -81,8 +79,6 @@ sqlite> SELECT TIME_TAKEN / 1000000.0 FROM REQUEST WHERE REQUEST.INPUT = 'a' AND
 sqlite> SELECT AVG(TIME_TAKEN / 1000000.0) FROM REQUEST WHERE REQUEST.INPUT = 'a' AND (REQUEST.TIME_TAKEN / 1000000.0) < 410 ;
 403.772096966667
 ```
-
-
 
 ```bash
 sqlite> SELECT AVG(TIME_TAKEN / 1000000.0) FROM REQUEST WHERE REQUEST.INPUT = 'a' AND (REQUEST.TIME_TAKEN / 1000000.0) < 410 ;
@@ -197,14 +193,14 @@ tmux attach -t persistent_server
 If you want to run these two scripts
 
 ```bash
-measure -r 1000 -c a -c b -c c -c d -c e -c f -c g -c h -c i -c j -c k -c l -c m -c n -c o -c p -c q -c r -c s -c t -c u -c v -c w -c x -c y -c z "out.sqlite"
-analyze -c a -c b -c c -c d -c e -c f -c g -c h -c i -c j -c k -c l -c m -c n -c o -c p -c q -c r -c s -c t -c u -c v -c w -c x -c y -c z "out.sqlite"
+measure -r 1000 -c a -c b -c c -c d -c e -c f -c g -c h -c i -c j -c k -c l -c m -c n -c o -c p -c q -c r -c s -c t -c u -c v -c w -c x -c y -c z -u https://e9208b1412526f8b89.gradio.live/login "out.sqlite"
+analyze -c a -c b -c c -c d -c e -c f -c g -c h -c i -c j -c k -c l -c m -c n -c o -c p -c q -c r -c s -c t -c u -c v -c w -c x -c y -c z -u https://e9208b1412526f8b89.gradio.live/login "out.sqlite"
 ```
 
 On a cloud backend to ensure it will never exit, install previously mentionned dependencies and run:
 
 ```bash
-tmux new-session -d -s persistent_session "source ./venv3/bin/activate && rm -Rf mkdir tmpdir/ && mkdir tmpdir/ ; measure -r 1000 -c a -c b -c c -c d -c e -c f -c g -c h -c i -c j -c k -c l -c m -c n -c o -c p -c q -c r -c s -c t -c u -c v -c w -c x -c y -c z 'out.sqlite' && analyze -c a -c b -c c -c d -c e -c f -c g -c h -c i -c j -c k -c l -c m -c n -c o -c p -c q -c r -c s -c t -c u -c v -c w -c x -c y -c z 'out.sqlite'"
+tmux new-session -d -s persistent_session "source ./venv3/bin/activate && rm -Rf mkdir tmpdir/ && mkdir tmpdir/ ; measure -r 1000 -c a -c b -c c -c d -c e -c f -c g -c h -c i -c j -c k -c l -c m -c n -c o -c p -c q -c r -c s -c t -c u -c v -c w -c x -c y -c z -u https://e9208b1412526f8b89.gradio.live/login 'out.sqlite' && analyze -c a -c b -c c -c d -c e -c f -c g -c h -c i -c j -c k -c l -c m -c n -c o -c p -c q -c r -c s -c t -c u -c v -c w -c x -c y -c z 'out.sqlite'"
 tmux attach -t persistent_session
 ```
 
@@ -213,7 +209,7 @@ tmux attach -t persistent_session
 Collect request time with:
 
 ```bash
-measure -r 250 -c a -c b -c c -c d -c e -c f -c g -c h -c i -c j -c k -c l -c m -c n -c o -c p -c q -c r -c s -c t -c u -c v -c w -c x -c y -c z "out.sqlite"
+measure -r 250 -c a -c b -c c -c d -c e -c f -c g -c h -c i -c j -c k -c l -c m -c n -c o -c p -c q -c r -c s -c t -c u -c v -c w -c x -c y -c z -u https://e9208b1412526f8b89.gradio.live/login "out.sqlite"
 ```
 
 and remove useless requests time with an sql `SELECT` as:
@@ -275,7 +271,6 @@ sqlite
 ```
 
 The greatest average request set took 404.4 ms that corresponds exactly to the `i` and it is exactly the right good first character! We just found the first character!
-
 
 # III/ API reference for developpers
 
