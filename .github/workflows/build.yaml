@@ -15,7 +15,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Install packaging dependencies
-        run: pip install setuptools wheel twine
+        run: pip3 install setuptools wheel twine
 
       - name: Build Wheel
         run: |
