@@ -8,10 +8,11 @@ import argparse
 def main():
     out_file = None
 
-    parser = argparse.ArgumentParser(prog='measure', description='Record execution time of a lit of requests.', epilog='Use analyze program to watch program vulnerabilities')
+    parser = argparse.ArgumentParser(prog='measure', description='Record execution time for a set of requests.', epilog='Use analyze program to watch program vulnerabilities')
 
-    parser.add_argument('-c', action='append')
-    parser.add_argument('-r')
+    parser.add_argument('-c', action='append', help="input to record")
+    parser.add_argument('-r', help="number of requests to execute for each handled caracter")
+    parser.add_argument('-u', help="http/https target url destination address")
     parser.add_argument('data_base')
     args = parser.parse_args()
 
@@ -39,7 +40,7 @@ def main():
                 print("requesting")
                 time_start = time.monotonic_ns()
                 try:
-                    r = session.post("https://44b22a6eeee0f9d7d9.gradio.live/login", data)
+                    r = session.post(args.u, data) # "https://44b22a6eeee0f9d7d9.gradio.live/login"
                 except:
                     print("unreachable network")
                     pass
