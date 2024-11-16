@@ -33,8 +33,8 @@ def main():
             print("pass {0}/{1} executed".format(i, repeats))
             for c in characters:
                 data = {
-                    'username': 'AAAAAAAA'.format(c), #openai
-                    'password': '{0}AAAAAAA' #isCloseAi
+                    'username': "openai", #openai
+                    'password': "{0}AAAAAAA".format(c) #isCloseAi
                 }
 
                 print("requesting")
