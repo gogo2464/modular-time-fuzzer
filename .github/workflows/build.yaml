@@ -1,31 +1,28 @@
-name: Publish on pypi
+name: Build
 
 on:
   pull_request:
-    branches: main
-    types: closed
+    types: opened
+  push:
+    branches:
+      - '**'
 
 jobs:
   build:
-    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
       - name: Install packaging dependencies
-        run: pip install setuptools wheel twine
+        run: pip install setuptools wheel
 
       - name: Build Wheel
         run: |
           pip3 install build &&
           python3 -m build
 
-      - name: Check wheels
+      - name: Install
         run: |
           twine check dist/* &&
           pip3 install dist/* --force-reinstall
-
-      - name: Publish Wheel
-        run: |
-          twine upload dist/* --username gogo2464 --password ${{ secrets.PYPI_GOGO2464_TOKEN }} --verbose
